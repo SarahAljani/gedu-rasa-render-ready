@@ -1,0 +1,25 @@
+version: "3.1"
+
+stories:
+  - story: Direct admission lead path
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: ask_admission
+      - action: action_ask_gemini
+      - intent: provide_phone
+      - action: action_submit_lead
+
+  - story: Tutoring path
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: ask_tutoring
+      - action: action_ask_gemini
+
+  - story: Visa path
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: ask_visa
+      - action: action_ask_gemini

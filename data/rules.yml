@@ -1,0 +1,82 @@
+version: "3.1"
+
+rules:
+  - rule: Greet user
+    steps:
+      - intent: greet
+      - action: utter_greet
+
+  - rule: Say goodbye
+    steps:
+      - intent: goodbye
+      - action: utter_goodbye
+
+  - rule: Explain bot identity
+    steps:
+      - intent: bot_challenge
+      - action: utter_iamabot
+
+  - rule: Admission questions go to Gemini knowledge action
+    steps:
+      - intent: ask_admission
+      - action: action_ask_gemini
+
+  - rule: Visa questions go to Gemini knowledge action
+    steps:
+      - intent: ask_visa
+      - action: action_ask_gemini
+
+  - rule: Tutoring questions go to Gemini knowledge action
+    steps:
+      - intent: ask_tutoring
+      - action: action_ask_gemini
+
+  - rule: Fees questions go to Gemini knowledge action
+    steps:
+      - intent: ask_fees
+      - action: action_ask_gemini
+
+  - rule: Countries questions go to Gemini knowledge action
+    steps:
+      - intent: ask_countries
+      - action: action_ask_gemini
+
+  - rule: Credit transfer questions go to Gemini knowledge action
+    steps:
+      - intent: ask_credit_transfer
+      - action: action_ask_gemini
+
+  - rule: Online study questions go to Gemini knowledge action
+    steps:
+      - intent: ask_online_study
+      - action: action_ask_gemini
+
+  - rule: Advisor contact questions go to Gemini knowledge action
+    steps:
+      - intent: ask_contact_advisor
+      - action: action_ask_gemini
+
+  - rule: Name messages go to Gemini knowledge action
+    steps:
+      - intent: provide_name
+      - action: action_ask_gemini
+
+  - rule: Phone messages submit lead
+    steps:
+      - intent: provide_phone
+      - action: action_submit_lead
+
+  - rule: Country messages go to Gemini knowledge action
+    steps:
+      - intent: provide_country
+      - action: action_ask_gemini
+
+  - rule: General information questions go to Gemini knowledge action
+    steps:
+      - intent: inform
+      - action: action_ask_gemini
+
+  - rule: Fallback goes to Gemini knowledge action
+    steps:
+      - intent: nlu_fallback
+      - action: action_ask_gemini
