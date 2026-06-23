@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: gedu-rasa-action-uniuwa47
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile.actions
+    envVars:
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: LEAD_WEBHOOK_URL
+        sync: false
+      - key: GEMINI_MODEL
+        value: gemini-2.5-flash
+      - key: GEDULINK_WEBSITE_URLS
+        value: https://gedulink.com/,https://gedulink.com/programs,https://gedulink.com/destinations,https://gedulink.com/services,https://gedulink.com/contact
+
+  - type: web
+    name: gedu-rasa-server-uniuwa47
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile.rasa
+    envVars:
+      - key: ACTION_ENDPOINT_URL
+        value: https://gedu-rasa-action-uniuwa47.onrender.com/webhook
+      - key: RASA_CORS_ORIGINS
+        value: "*"

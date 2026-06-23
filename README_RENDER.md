@@ -32,3 +32,14 @@ curl -X POST https://gedu-rasa-server-uniuwa47.onrender.com/webhooks/rest/webhoo
 ```
 
 Expected response: JSON array with at least one bot message.
+
+
+## Patch note: Action server startup
+
+If Render logs show `error: unrecognized arguments: --host 0.0.0.0` for `gedu-rasa-action-uniuwa47`, the action server command should be:
+
+```bash
+python -m rasa_sdk --actions actions --port ${PORT:-5055}
+```
+
+The Rasa SDK action server does not accept the `--host` flag in this image.

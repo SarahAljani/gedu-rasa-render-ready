@@ -1,0 +1,27 @@
+recipe: default.v1
+assistant_id: gedulink_academic_advisor
+language: ar
+
+pipeline:
+  - name: WhitespaceTokenizer
+  - name: RegexFeaturizer
+  - name: LexicalSyntacticFeaturizer
+  - name: CountVectorsFeaturizer
+  - name: CountVectorsFeaturizer
+    analyzer: char_wb
+    min_ngram: 1
+    max_ngram: 3
+  - name: DIETClassifier
+    epochs: 20
+    constrain_similarities: true
+  - name: EntitySynonymMapper
+  - name: FallbackClassifier
+    threshold: 0.25
+    ambiguity_threshold: 0.1
+
+policies:
+  - name: MemoizationPolicy
+  - name: RulePolicy
+    core_fallback_threshold: 0.25
+    core_fallback_action_name: "action_ask_gemini"
+    enable_fallback_prediction: true

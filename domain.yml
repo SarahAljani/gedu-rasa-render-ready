@@ -1,0 +1,71 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - bot_challenge
+  - ask_admission
+  - ask_visa
+  - ask_tutoring
+  - ask_fees
+  - ask_countries
+  - ask_credit_transfer
+  - ask_online_study
+  - ask_contact_advisor
+  - provide_name
+  - provide_phone
+  - provide_country
+  - inform
+
+entities:
+  - student_name
+  - phone_number
+  - study_country
+  - degree_level
+
+slots:
+  student_name:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: student_name
+  phone_number:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: phone_number
+  study_country:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: study_country
+  degree_level:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: degree_level
+
+responses:
+  utter_greet:
+    - text: "مرحباً بك في GEDULink! 🎓 كيف يمكنني مساعدتك اليوم في القبول الجامعي المباشر، الدراسة بالخارج، أو الدعم الأكاديمي؟"
+    - text: "Hello! Welcome to GEDULink 🎓 How can I help you with direct admission, study destinations, or academic support?"
+
+  utter_goodbye:
+    - text: "شكراً لتواصلك مع GEDULink. يمكنك مراسلتنا في أي وقت عبر واتساب: https://wa.me/971589690014"
+    - text: "Thank you for contacting GEDULink. You can reach us anytime on WhatsApp: https://wa.me/971589690014"
+
+  utter_iamabot:
+    - text: "أنا المساعد الذكي لـ GEDULink، أساعدك في القبولات الجامعية، برامج الدراسة، الفيزا، والدعم الأكاديمي."
+    - text: "I am GEDULink's smart assistant for admissions, study programs, visa guidance, and academic support."
+
+actions:
+  - action_ask_gemini
+  - action_submit_lead
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
