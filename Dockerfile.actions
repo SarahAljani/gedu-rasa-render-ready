@@ -12,4 +12,4 @@ RUN pip install --no-cache-dir -r requirements-actions.txt \
 
 USER 1001
 ENTRYPOINT []
-CMD sh -c "python -m rasa_sdk --actions actions --host 0.0.0.0 --port ${PORT:-5055}"
+CMD sh -c "python -m rasa_sdk --actions actions --port ${PORT:-5055}"
