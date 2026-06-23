@@ -23,5 +23,5 @@ rasa run \
   --cors "${RASA_CORS_ORIGINS}" \
   --credentials credentials.yml \
   --endpoints endpoints.production.yml \
-  --host 0.0.0.0 \
+  --interface 0.0.0.0 \
   --port "${PORT}"
