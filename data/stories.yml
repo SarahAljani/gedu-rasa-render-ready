@@ -1,0 +1,29 @@
+version: "3.1"
+
+stories:
+  - story: admissions path
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: ask_admission
+      - action: utter_ask_name
+      - intent: provide_name
+      - action: utter_ask_phone
+      - intent: provide_phone
+      - action: utter_ask_country
+      - intent: provide_country
+      - action: action_submit_lead
+
+  - story: tutoring path
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: ask_tutoring
+      - action: utter_tutoring_info
+
+  - story: visa path
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: ask_visa
+      - action: utter_visa_info

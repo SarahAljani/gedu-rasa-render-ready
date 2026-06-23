@@ -1,0 +1,32 @@
+version: "3.1"
+
+rules:
+  - rule: Say goodbye anytime the user says goodbye
+    steps:
+      - intent: goodbye
+      - action: utter_goodbye
+
+  - rule: Say bot challenge anytime user asks what/who you are
+    steps:
+      - intent: bot_challenge
+      - action: utter_iamabot
+
+  - rule: Continuous fallback handler for unclear queries
+    steps:
+      - intent: nlu_fallback
+      - action: action_ask_gemini
+
+  - rule: Handle direct tutoring queries
+    steps:
+      - intent: ask_tutoring
+      - action: utter_tutoring_info
+
+  - rule: Handle direct visa queries
+    steps:
+      - intent: ask_visa
+      - action: utter_visa_info
+
+  - rule: Handle direct admission queries
+    steps:
+      - intent: ask_admission
+      - action: utter_ask_name
