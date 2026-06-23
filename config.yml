@@ -1,0 +1,38 @@
+recipe: default.v1
+assistant_id: gedulink_academic_advisor
+language: ar
+
+pipeline:
+  - name: WhitespaceTokenizer
+  - name: RegexFeaturizer
+  - name: LexicalSyntacticFeaturizer
+  - name: CountVectorsFeaturizer
+  - name: CountVectorsFeaturizer
+    analyzer: char_wb
+    min_ngram: 1
+    max_ngram: 3
+  - name: DIETClassifier
+    epochs: 20
+    constrain_similarities: true
+    # Smaller transformer = lower runtime RAM (Render free tier = 512MB).
+    # Defaults are transformer_size: 256, number_of_transformer_layers: 2,
+    # hidden_layers_sizes text: [256, 128]. These cuts reduce parameter
+    # count significantly with only a minor precision trade-off — and since
+    # every fallback/low-confidence case already routes to action_ask_gemini
+    # (see rules.yml), classification misses still get a good answer.
+    transformer_size: 128
+    number_of_transformer_layers: 1
+    hidden_layers_sizes:
+      text: [128]
+      label: []
+  - name: EntitySynonymMapper
+  - name: FallbackClassifier
+    threshold: 0.25
+    ambiguity_threshold: 0.1
+
+policies:
+  - name: MemoizationPolicy
+  - name: RulePolicy
+    core_fallback_threshold: 0.25
+    core_fallback_action_name: "action_ask_gemini"
+    enable_fallback_prediction: true
