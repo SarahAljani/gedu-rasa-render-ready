@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: gedu-rasa-action-uniuwa47
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile.actions
+    envVars:
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: VITE_LEAD_WEBHOOK_URL
+        sync: false
+
+  - type: web
+    name: gedu-rasa-server-uniuwa47
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile.rasa
+    envVars:
+      - key: ACTION_ENDPOINT_URL
+        value: https://gedu-rasa-action-uniuwa47.onrender.com/webhook
+      - key: RASA_CORS_ORIGINS
+        value: "*"

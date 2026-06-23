@@ -1,0 +1,76 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - bot_challenge
+  - ask_admission
+  - ask_visa
+  - ask_tutoring
+  - provide_name
+  - provide_phone
+  - provide_country
+  - inform
+
+entities:
+  - student_name
+  - phone_number
+  - study_country
+  - degree_level
+
+slots:
+  student_name:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: student_name
+  phone_number:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: phone_number
+  study_country:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: study_country
+  degree_level:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: degree_level
+
+responses:
+  utter_greet:
+    - text: "مرحباً بك في GEDULink! 🎓 أنا مستشارك الأكاديمي المساعد. كيف يمكنني مساعدتك اليوم في التقديم المباشر للجامعات أو الدعم الدراسي؟"
+    - text: "أهلاً بك! يسعدني إرشادك للدراسة بالخارج أو التسجيل في برامج التدريب معنا. بمَ يمكنني خدمتك؟"
+
+  utter_goodbye:
+    - text: "شكراً لتواصلك مع مكتب GEDULink. بالتوفيق في مسيرتك الأكاديمية! يمكنك مراسلتنا دائماً عبر واتساب."
+    - text: "مع السلامة! نتمنى لك يوماً سعيداً ومستقبلاً باهراً."
+
+  utter_iamabot:
+    - text: "أنا المساعد الذكي لمكتب GEDULink للقبول الجامعي والدعم الدراسي المباشر."
+
+  utter_ask_name:
+    - text: "يسعدني البدء في توجيه طلبك. هل يمكنني الحصول على اسمك الكامل من فضلك؟"
+
+  utter_ask_phone:
+    - text: "تسجيل فوري! يرجى تزويدي برقم هاتفك مع رمز الدولة لنقوم بربطك بمنسق القبول المختص."
+
+  utter_ask_country:
+    - text: "ما هي الدولة المفضلة لديك للدراسة؟ نحن نوفر قبولات مباشرة في الإمارات، كندا، أمريكا، المكسيك، وجنوب أفريقيا."
+
+  utter_tutoring_info:
+    - text: "نوفر برامج دعم متكاملة للطلاب للتفوق الدراسي: حل ومراجعة الاسايمتات، الواجبات، تحضير الامتحانات (Calculus، Physics، CS) مع كفاءات عربية وأجنبية. 📞 تواصل معنا لمباشرة الدرس الأول."
+
+  utter_visa_info:
+    - text: "لدينا خبير متخصص في تدقيق الحسابات البنكية للملف المالي وتقديم استشارات تأشيرات الطلاب لضمان أعلى معدلات القبول. كما ندعم خيارات الدراسة أونلاين 100% التي تعفيك نهائياً من قيود الفيزا."
+
+actions:
+  - action_ask_gemini
+  - action_submit_lead
