@@ -1,0 +1,177 @@
+version: "3.1"
+
+nlu:
+  - intent: greet
+    examples: |
+      - هلا
+      - مرحبا
+      - السلام عليكم
+      - السلام
+      - أهلاً
+      - hi
+      - hello
+      - hey
+      - good morning
+      - good evening
+
+  - intent: goodbye
+    examples: |
+      - مع السلامة
+      - باي
+      - شكرا مع السلامة
+      - شكرا باي
+      - goodbye
+      - bye
+      - see you
+
+  - intent: bot_challenge
+    examples: |
+      - من أنت؟
+      - هل أنت روبوت؟
+      - هل أنت بشري؟
+      - انت مين؟
+      - are you a bot?
+      - who are you?
+      - what can you do?
+
+  - intent: ask_admission
+    examples: |
+      - كيف أقدم على جامعة؟
+      - أريد القبول الجامعي المباشر
+      - كيف يمكنني الحصول على قبول جامعي مباشر؟
+      - أريد دراسة ماجستير بزنس
+      - أريد بكالوريوس في إدارة الأعمال
+      - أبي أسجل في جامعة
+      - كيف أسجل في أمريكا؟
+      - اريد قبول جامعي في كندا
+      - study in USA direct placement
+      - I want university admission
+      - How can I apply to a university?
+      - direct admission requirements
+      - bachelor admission
+      - master admission
+      - PhD admission
+
+  - intent: ask_visa
+    examples: |
+      - شروط الفيزا الدراسية
+      - كيف أطلع فيزا كندا؟
+      - هل تساعدون في التأشيرة؟
+      - مراجعة الحساب البنكي للتأشيرة
+      - student visa help
+      - visa support
+      - do you help with visa?
+      - Canada visa requirements
+
+  - intent: ask_tutoring
+    examples: |
+      - أحتاج مساعدة في حل الاسايمنتات
+      - مساعدة في الواجبات
+      - أريد مدرس خصوصي
+      - مراجعة Homework
+      - تجهيز للامتحانات
+      - مدرس رياضيات
+      - مدرس فيزياء
+      - مساعدة في كمبيوتر ساينس
+      - assignment support
+      - homework help
+      - tutoring support
+      - exam preparation
+      - physics tutor
+      - math tutor
+      - computer science project help
+
+  - intent: ask_fees
+    examples: |
+      - كم الرسوم؟
+      - كم تكلفة الدراسة؟
+      - أريد معرفة الأسعار
+      - هل يوجد أقساط؟
+      - tuition fees
+      - how much does it cost?
+      - study fees
+      - payment plan
+      - installment options
+
+  - intent: ask_countries
+    examples: |
+      - ما هي الدول المتاحة للدراسة؟
+      - وين أقدر أدرس؟
+      - هل عندكم كندا؟
+      - هل عندكم أمريكا؟
+      - هل يوجد المكسيك؟
+      - study destinations
+      - what countries are available?
+      - can I study in Canada?
+      - can I study in Mexico?
+      - do you have UAE universities?
+
+  - intent: ask_credit_transfer
+    examples: |
+      - هل يمكن تحويل الساعات؟
+      - عندي مواد سابقة هل تنحسب؟
+      - أريد معادلة مواد
+      - credit transfer
+      - transfer credits
+      - can I transfer my credits?
+      - previous university courses
+
+  - intent: ask_online_study
+    examples: |
+      - هل يوجد دراسة أونلاين؟
+      - أريد الدراسة عن بعد
+      - جامعة اونلاين
+      - online study
+      - remote study
+      - can I study online?
+      - fully online degree
+
+  - intent: ask_contact_advisor
+    examples: |
+      - أريد التحدث مع مستشار
+      - أبغى رقم الواتساب
+      - تواصل مع مستشار أكاديمي
+      - من هو المسؤول؟
+      - اريد رقم المكتب
+      - contact advisor
+      - WhatsApp number
+      - I want to speak with an advisor
+      - call me
+      - contact me
+
+  - intent: provide_name
+    examples: |
+      - اسمي [أحمد علي](student_name)
+      - أنا [سعيد راشد](student_name)
+      - [محمد الكعبي](student_name)
+      - My name is [John Smith](student_name)
+      - I am [Sara Ahmed](student_name)
+
+  - intent: provide_phone
+    examples: |
+      - رقمي [+971551151364](phone_number)
+      - الموبايل هو [0589690014](phone_number)
+      - واتسابي [+971589690014](phone_number)
+      - اتصلوا بي على [0501234567](phone_number)
+      - My phone is [+971501111111](phone_number)
+      - WhatsApp me on [+971551234567](phone_number)
+
+  - intent: provide_country
+    examples: |
+      - أريد الدراسة في [الإمارات](study_country)
+      - مهتم بـ [أمريكا](study_country)
+      - [المكسيك](study_country)
+      - [كندا](study_country)
+      - [جنوب أفريقيا](study_country)
+      - Study in [Canada](study_country)
+      - I prefer [USA](study_country)
+
+  - intent: inform
+    examples: |
+      - أريد معلومات أكثر
+      - عندي سؤال
+      - ممكن التفاصيل
+      - explain more
+      - more details please
+      - I need help
+      - عندي استفسار عن الجامعة
